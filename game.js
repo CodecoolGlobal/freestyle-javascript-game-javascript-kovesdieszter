@@ -5,6 +5,8 @@ function initGame() {
     for (let i = 0; i < cars.length; i++) {
         console.log(cars[i]);
     };
-    // Your game can start here, but define separate functions, don't write everything in here :)
-
+    // Your game can start here, but define separate functions, don't write everything in here :
 }
+console.log(document.getElementById("1").getBoundingClientRect());
+
+

@@ -1,7 +1,14 @@
 initGame();
 
-let circle = document.querySelector('.circle');
+let frog= document.querySelector('.frog');
 let move = 60;
+let container = document.querySelector('.container');
+let borders = container.getBoundingClientRect();
+let containerTop = borders.top;
+containerTop = 10;
+console.log(borders.top , borders.right, borders.bottom, borders.left);
+console.log(containerTop);
+
 
 function initGame() {
     let cars = document.getElementsByClassName('cars');
@@ -14,25 +21,32 @@ function initGame() {
 }
 
 window.addEventListener('load', () => {
-    circle.style.position = 'absolute';
-    circle.style.left = 0;
-    circle.style.top = 0;
+    frog.style.position = 'relative';
+    frog.style.left = 0;
+    frog.style.top = 0;
 });
+
+
 window.addEventListener('keyup', (e) => {
-    switch (e.key) {
-        case 'ArrowLeft':
-            circle.style.left = parseInt(circle.style.left) - move + 'px';
-            break;
-        case 'ArrowRight':
-            circle.style.left = parseInt(circle.style.left) + move + 'px';
-            break;
-        case 'ArrowUp':
-            circle.style.top = parseInt(circle.style.top) - move + 'px';
-            break;
-        case 'ArrowDown':
-            circle.style.top = parseInt(circle.style.top) + move + 'px';
-            break;
+    if (parseInt(frog.style.left) >= 0 && parseInt(frog.style.left) <= 840 && parseInt(frog.style.top) >= 0 && parseInt(frog.style.top) <= 680) {
+        switch (e.key) {
+            case 'ArrowLeft':
+                frog.style.left = parseInt(frog.style.left) - move + 'px';
+                console.log('Béka koord.re:', parseInt(frog.style.left))
+                console.log(borders.left)
+                break;
+            case 'ArrowRight':
+                frog.style.left = parseInt(frog.style.left) + move + 'px';
+                break;
+            case 'ArrowUp':
+                frog.style.top = parseInt(frog.style.top) - move + 'px';
+                break;
+            case 'ArrowDown':
+                frog.style.top = parseInt(frog.style.top) + move + 'px';
+                break;
+        }
     }
 });
+
 
 // branch try

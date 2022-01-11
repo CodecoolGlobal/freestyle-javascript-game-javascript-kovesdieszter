@@ -1,9 +1,21 @@
+body{
+    background-color: lightblue;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.frog{
+    float: center;
+}
+
 .container {
     border: 1px solid;
     display: flex;
     flex-wrap: wrap;
     height: auto;
     width: 900px;
+    justify-content: center;
 }
 
 .start {

@@ -38,6 +38,16 @@
     background-color: darkgoldenrod;
 }
 
-.car-img {
+.car-left {
+    position: relative;
+    left: 10px;
     padding: 5px;
 }
+
+.car-right {
+    position: relative;
+    left: 850px;
+    padding: 5px;
+}
+
+

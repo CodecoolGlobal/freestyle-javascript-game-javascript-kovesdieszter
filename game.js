@@ -6,16 +6,13 @@ let container = document.querySelector('.container');
 let borders = container.getBoundingClientRect();
 let containerTop = borders.top;
 containerTop = 10;
-// console.log(borders.top , borders.right, borders.bottom, borders.left);
-// console.log(containerTop);
+let gameBorderLeft = '-480px';
+let frogLimitLeft = '-420px';
+let score = 0;
 
 
 function initGame() {
     let cars = document.getElementsByClassName('cars');
-
-    // for (let i = 0; i < cars.length; i++) {
-    //     cars[i].style.backgroundColor = "red";
-    // }
     // Your game can start here, but define separate functions, don't write everything in here :)
 
 }
@@ -29,6 +26,7 @@ window.addEventListener('load', () => {
 
 window.addEventListener('keyup', (e) => {
     // add functionality for arrow buttons
+    checkIfWin();
     switch (e.key) {
         case 'ArrowLeft':
             frog.style.left = parseInt(frog.style.left) - move + 'px';
@@ -48,8 +46,8 @@ window.addEventListener('keyup', (e) => {
             break;
     }
     // limit frog's moves between board
-    if (frog.style.left === '-480px') {
-        frog.style.left = '-420px';
+    if (frog.style.left === gameBorderLeft) {
+        frog.style.left = frogLimitLeft;
     } else if (frog.style.left === '480px'){
         frog.style.left = '420px';
     } else if (frog.style.top === '-420px'){
@@ -58,6 +56,18 @@ window.addEventListener('keyup', (e) => {
         frog.style.top = '0px';
     }
 });
+
+function checkIfWin() {
+    if (frog.style.top === '-300px'){
+        alert('win');
+    score += 1;
+    let winDiv = document.getElementById('win');
+    winDiv.innerText = 'You won!';
+    let scoreDiv = document.getElementById('score');
+    scoreDiv.innerText = 'Your score is: '+score;
+    };
+}
+
 
 
 // branch try

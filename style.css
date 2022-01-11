@@ -38,9 +38,15 @@
     background-color: darkgoldenrod;
 }
 
-.car-left {
+.car-left1 {
     position: relative;
     left: 10px;
+    padding: 5px;
+}
+
+.car-left2 {
+    position: relative;
+    left: 500px;
     padding: 5px;
 }
 

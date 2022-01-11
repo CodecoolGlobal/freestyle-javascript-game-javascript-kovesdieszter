@@ -8,30 +8,28 @@ function initGame() {
     // Your game can start here, but define separate functions, don't write everything in here :
 }
 
+function carMovement() {
+    const INDEX = 0
+    const field = document.getElementsByClassName('container')[INDEX]
+    console.log(field)
+    let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
+    let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
 
-//const getPosAll = (element) => {
-  //  const {x, y, top, right, bottom, left, width, height} = element.getBoundingClientRect();
-  //  return {x, y, top, right, bottom, left, width, height} }
-
-
-
-async function carMove() {
-
-    let carsLeft = document.getElementsByClassName("car-left")
-    for (let i = 0; i < carsLeft.length; i++) {
-        let car = carsLeft.item(i)
+    async function leftCarMove(car) {
+        const fieldParams = field.getBoundingClientRect()
         while (true) {
+            let carParams = car.getBoundingClientRect()
             let elstyle = window.getComputedStyle(car)
-            let carLeft = elstyle.getPropertyValue("left").replace('px', '')
-            car.style.left = `${parseInt(carLeft, 10) + 1}px`
-            console.log(carLeft)
+            let carLeftSide = elstyle.getPropertyValue("left").replace('px', '')
+            car.style.left = `${parseInt(carLeftSide, 10) + 1}px`
             await new Promise((r) => setTimeout(() => r(), 10));
-            if (car.style.left === "900px") {
+            if (car.style.left === `${fieldParams.right - 1.5 * carParams.height}px`) {
                 car.style.left = "10px"
             }
         }
     }
+    leftCarMove(firstCarLeft);
+    leftCarMove(secondCarLeft);
 }
 
-carMove();
-
+carMovement();

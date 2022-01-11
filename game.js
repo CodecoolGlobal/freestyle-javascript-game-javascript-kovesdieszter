@@ -6,8 +6,8 @@ let container = document.querySelector('.container');
 let borders = container.getBoundingClientRect();
 let containerTop = borders.top;
 containerTop = 10;
-console.log(borders.top , borders.right, borders.bottom, borders.left);
-console.log(containerTop);
+// console.log(borders.top , borders.right, borders.bottom, borders.left);
+// console.log(containerTop);
 
 
 function initGame() {
@@ -28,21 +28,22 @@ window.addEventListener('load', () => {
 
 
 window.addEventListener('keyup', (e) => {
-    if (parseInt(frog.style.left) >= 0 && parseInt(frog.style.left) <= 840 && parseInt(frog.style.top) >= 0 && parseInt(frog.style.top) <= 680) {
-        switch (e.key) {
+    if ((parseInt(frog.style.left) >= -360 && parseInt(frog.style.left) <= 360) && (parseInt(frog.style.top) >= -300 && parseInt(frog.style.top) <= 0)) {        switch (e.key) {
             case 'ArrowLeft':
                 frog.style.left = parseInt(frog.style.left) - move + 'px';
-                console.log('Béka koord.re:', parseInt(frog.style.left))
-                console.log(borders.left)
+                console.log('Béka left / right:', parseInt(frog.style.left))
                 break;
             case 'ArrowRight':
                 frog.style.left = parseInt(frog.style.left) + move + 'px';
+                console.log('Béka left / right:', parseInt(frog.style.left))
                 break;
             case 'ArrowUp':
                 frog.style.top = parseInt(frog.style.top) - move + 'px';
+                console.log('Béka bottom:', parseInt(frog.style.top))
                 break;
             case 'ArrowDown':
                 frog.style.top = parseInt(frog.style.top) + move + 'px';
+                console.log('Béka bottom:', parseInt(frog.style.top))
                 break;
         }
     }

@@ -9,11 +9,13 @@ containerTop = 10;
 let gameBorderLeft = '-480px';
 let frogLimitLeft = '-420px';
 let score = 0;
+let lives = document.getElementsByClassName('lives');
 
 
 function initGame() {
     let cars = document.getElementsByClassName('cars');
     // Your game can start here, but define separate functions, don't write everything in here :)
+
 
 }
 
@@ -65,9 +67,8 @@ function checkIfWin() {
     winDiv.innerText = 'You won!';
     let scoreDiv = document.getElementById('score');
     scoreDiv.innerText = 'Your score is: '+score;
+    frog.style.top = '60px';
     };
 }
-
-
 
 // branch try

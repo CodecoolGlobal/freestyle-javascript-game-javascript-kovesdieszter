@@ -37,6 +37,7 @@ body{
     width: 900px;
     border: 1px solid;
     background-color: grey;
+    display: flex;
     background-image: url("static/road2.png");
 
 }
@@ -54,3 +55,23 @@ body{
     border: 1px solid;
     background-color: darkgoldenrod;
 }
+
+.car-left1 {
+    position: relative;
+    left: 10px;
+    padding: 5px;
+}
+
+.car-left2 {
+    position: relative;
+    left: 500px;
+    padding: 5px;
+}
+
+.car-right {
+    position: relative;
+    left: 800px;
+    padding: 5px;
+}
+
+

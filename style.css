@@ -10,12 +10,15 @@ body{
 }
 
 .container {
-    border: 1px solid;
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    width: 900px;
-    justify-content: center;
+    /*border: 1px solid;*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*height: auto;*/
+    /*width: 900px;*/
+    /*justify-content: start;*/
+    position: absolute;
+    top: 50%;
+    margin-top: -225px;
 }
 
 .start {

@@ -7,6 +7,12 @@ let containerTop = borders.top;
 containerTop = 10;
 let gameBorderLeft = '-480px';
 let frogLimitLeft = '-420px';
+let gameBoardRight = '480px';
+let frogLimitRight = '420px';
+let gameBorderTop = '-420px';
+let frogLimitTop = '-360px';
+let gameBorderBottom = '60px';
+let frogLimitBottom = '0px';
 let score = 0;
 let lives = 3;
 
@@ -51,17 +57,17 @@ window.addEventListener('keyup', (e) => {
     // limit frog's moves between board
     if (frog.style.left === gameBorderLeft) {
         frog.style.left = frogLimitLeft;
-    } else if (frog.style.left === '480px'){
-        frog.style.left = '420px';
-    } else if (frog.style.top === '-420px'){
-        frog.style.top = '-360px';
-    } else if (frog.style.top === '60px'){
-        frog.style.top = '0px';
+    } else if (frog.style.left === gameBoardRight){
+        frog.style.left = frogLimitRight;
+    } else if (frog.style.top === gameBorderTop){
+        frog.style.top = frogLimitTop;
+    } else if (frog.style.top === gameBorderBottom){
+        frog.style.top = frogLimitBottom;
     }
 });
 
 function checkIfWin() {
-    if (frog.style.top === '-300px'){
+    if (frog.style.top === '-360px'){
         alert('win');
     score += 1;
     let winDiv = document.getElementById('win');

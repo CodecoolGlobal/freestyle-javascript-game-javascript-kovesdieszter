@@ -9,13 +9,15 @@ containerTop = 10;
 let gameBorderLeft = '-480px';
 let frogLimitLeft = '-420px';
 let score = 0;
-let lives = document.getElementsByClassName('lives');
+let lives = 3;
 
+initGame();
 
 function initGame() {
     let cars = document.getElementsByClassName('cars');
+    let livesDiv = document.getElementById('lives');
+    livesDiv.innerText = 'Your lives: '+lives.toString();
     // Your game can start here, but define separate functions, don't write everything in here :)
-
 
 }
 
@@ -71,4 +73,4 @@ function checkIfWin() {
     };
 }
 
-// branch try
+

@@ -10,11 +10,9 @@ body{
 }
 
 .container {
-    border: 1px solid;
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    width: 900px;
+    position: absolute;
+    top: 50%;
+    margin-top: -226px;
     justify-content: center;
 }
 

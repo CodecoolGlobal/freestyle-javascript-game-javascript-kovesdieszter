@@ -7,6 +7,7 @@ body{
 
 h1{
     text-align: center;
+    background-color: yellow;
 }
 
 .frog{
@@ -14,12 +15,6 @@ h1{
 }
 
 .container {
-    /*border: 1px solid;*/
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*height: auto;*/
-    /*width: 900px;*/
-    /*justify-content: start;*/
     position: absolute;
     top: 50%;
     margin-top: -225px;

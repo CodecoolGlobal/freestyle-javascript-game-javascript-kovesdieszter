@@ -1,4 +1,5 @@
 let frog = document.querySelector('.frog');
+let frogParams = frog.getBoundingClientRect()
 let move = 60;
 let container = document.querySelector('.container');
 let borders = container.getBoundingClientRect();
@@ -23,20 +24,22 @@ let carRight = document.getElementsByClassName("car-right")[INDEX]
 initGame();
 function carMovement() {
 
+
     async function movingObj(car, direction) {
         const fieldParams = field.getBoundingClientRect()
         while (true) {
+            crash(firstCarLeft);
             let carParams = car.getBoundingClientRect()
             let elemStyle = window.getComputedStyle(car)
             let carLeftSide = elemStyle.getPropertyValue("left").replace('px', '')
             car.style.left = `${parseInt(carLeftSide, 10) + direction}px`
-            await new Promise((r) => setTimeout(() => r(), 10));
+            await new Promise((r) => setTimeout(() => r(), 5));
             if (direction === 1) {
-                if (car.style.left === `${fieldParams.right - 2 * carParams.height}px`) {
+                if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
                     car.style.left = "10px"
                 }
             } else {
-                if (car.style.left === `${fieldParams.left}px`) {
+                if (Math.floor(carParams.left) === Math.floor(fieldParams.left)) {
                     car.style.left = "800px"
                 }
             }
@@ -105,10 +108,19 @@ function checkIfWin() {
         winDiv.innerText = 'You won!';
         let scoreDiv = document.getElementById('score');
         scoreDiv.innerText = 'Your score is: ' + score;
+        frog.style.top = '60px';
     }
 }
 
+function crash(car) {
+    if (car.style.left < frog.style.left + frog.style.width &&
+    car.style.left + car.style.width > frog.style.left &&
+    car.style.top < frog.style.top + frog.style.height &&
+    car.style.height + car.style.top > frog.style.top) {
+        alert("hahó")
+    }
 
+}
 
 
 

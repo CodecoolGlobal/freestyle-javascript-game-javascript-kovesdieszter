@@ -14,14 +14,14 @@ let gameBorderBottom = '60px';
 let frogLimitBottom = '0px';
 let score = 0;
 let lives = 3;
+const INDEX = 0
+const field = document.getElementsByClassName('container')[INDEX]
+let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
+let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
+let carRight = document.getElementsByClassName("car-right")[INDEX]
 
 initGame();
 function carMovement() {
-    const INDEX = 0
-    const field = document.getElementsByClassName('container')[INDEX]
-    let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
-    let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
-    let carRight = document.getElementsByClassName("car-right")[INDEX]
 
     async function movingObj(car, direction) {
         const fieldParams = field.getBoundingClientRect()

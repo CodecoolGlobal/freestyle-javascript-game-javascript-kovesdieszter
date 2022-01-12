@@ -47,7 +47,7 @@ function carMovement() {
     movingObj(secondCarLeft, 1);
     movingObj(carRight, -1);
 }
-carMovement();
+// carMovement();
 
 function initGame() {
     let cars = document.getElementsByClassName('cars');
@@ -56,7 +56,7 @@ function initGame() {
     // Your game can start here, but define separate functions, don't write everything in here :)
 }
 
-window.addEventListener('load', () => {
+window.addEventListener('click', () => {
     frog.style.position = 'relative';
     frog.style.left = 0;
     frog.style.top = 0;
@@ -108,8 +108,6 @@ function checkIfWin() {
         frog.style.top = '60px';
     }
 }
-
-
 
 
 

@@ -1,15 +1,24 @@
 body{
+    background-color: lightblue;
+    text-align: center;
     display: flex;
     justify-content: center;
 }
 
+.frog{
+    float: center;
+}
+
 .container {
-    border: 1px solid;
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    width: 900px;
-    text-align: center;
+    /*border: 1px solid;*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*height: auto;*/
+    /*width: 900px;*/
+    /*justify-content: start;*/
+    position: absolute;
+    top: 50%;
+    margin-top: -225px;
 }
 
 .start {
@@ -28,12 +37,15 @@ body{
     width: 900px;
     border: 1px solid;
     background-color: grey;
+    background-image: url("static/road2.png");
+
 }
 
 .pavement {
     height: 60px;
     width: 900px;
-    border: 1px solid darkgoldenrod;
+    border: 1px solid;
+    background-color: saddlebrown;
 }
 
 .finish{
@@ -42,14 +54,3 @@ body{
     border: 1px solid;
     background-color: darkgoldenrod;
 }
-
-.frog{
-    float:center;
-}
-
-/*.circle{*/
-/*    height: 50px;*/
-/*    width: 50px;*/
-/*    border-radius: 40%;*/
-/*    background-color: black;*/
-/*}*/

@@ -1,4 +1,3 @@
-initGame();
 
 let frog = document.querySelector('.frog');
 let move = 60;

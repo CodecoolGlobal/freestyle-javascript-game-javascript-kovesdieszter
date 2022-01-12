@@ -1,4 +1,5 @@
 let frog = document.querySelector('.frog');
+let frogParams = frog.getBoundingClientRect()
 let move = 60;
 let container = document.querySelector('.container');
 let borders = container.getBoundingClientRect();
@@ -14,18 +15,20 @@ let gameBorderBottom = '60px';
 let frogLimitBottom = '0px';
 let score = 0;
 let lives = 3;
+const INDEX = 0
+const field = document.getElementsByClassName('container')[INDEX]
+let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
+let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
+let carRight = document.getElementsByClassName("car-right")[INDEX]
 
 initGame();
 function carMovement() {
-    const INDEX = 0
-    const field = document.getElementsByClassName('container')[INDEX]
-    let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
-    let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
-    let carRight = document.getElementsByClassName("car-right")[INDEX]
+
 
     async function movingObj(car, direction) {
         const fieldParams = field.getBoundingClientRect()
         while (true) {
+            crash(firstCarLeft);
             let carParams = car.getBoundingClientRect()
             let elemStyle = window.getComputedStyle(car)
             let carLeftSide = elemStyle.getPropertyValue("left").replace('px', '')
@@ -109,7 +112,15 @@ function checkIfWin() {
     }
 }
 
+function crash(car) {
+    if (car.style.left < frog.style.left + frog.style.width &&
+    car.style.left + car.style.width > frog.style.left &&
+    car.style.top < frog.style.top + frog.style.height &&
+    car.style.height + car.style.top > frog.style.top) {
+        alert("hahó")
+    }
 
+}
 
 
 

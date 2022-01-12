@@ -105,6 +105,7 @@ function checkIfWin() {
         winDiv.innerText = 'You won!';
         let scoreDiv = document.getElementById('score');
         scoreDiv.innerText = 'Your score is: ' + score;
+        frog.style.top = '60px';
     }
 }
 

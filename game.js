@@ -30,13 +30,13 @@ function carMovement() {
             let elemStyle = window.getComputedStyle(car)
             let carLeftSide = elemStyle.getPropertyValue("left").replace('px', '')
             car.style.left = `${parseInt(carLeftSide, 10) + direction}px`
-            await new Promise((r) => setTimeout(() => r(), 10));
+            await new Promise((r) => setTimeout(() => r(), 5));
             if (direction === 1) {
-                if (car.style.left === `${fieldParams.right - 2 * carParams.height}px`) {
+                if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
                     car.style.left = "10px"
                 }
             } else {
-                if (car.style.left === `${fieldParams.left}px`) {
+                if (Math.floor(carParams.left) === Math.floor(fieldParams.left)) {
                     car.style.left = "800px"
                 }
             }

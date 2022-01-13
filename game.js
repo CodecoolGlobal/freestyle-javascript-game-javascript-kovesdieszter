@@ -126,10 +126,10 @@ function checkIfWin() {
         let winDiv = document.getElementById('win');
         winDiv.style.display = "block";
         let scoreDiv = document.getElementById('score');
-        scoreDiv.innerText = `${score}`;
+        scoreDiv.innerText = `Score: ${score}`;
         setTimeout(function(){
             winDiv.style.display = "none"
-        }, 2000)
+        }, 1500)
         frog.style.top = '60px';
     }
 }

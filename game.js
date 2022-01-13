@@ -124,9 +124,9 @@ function checkIfWin() {
         alert('win');
         score += 1;
         let winDiv = document.getElementById('win');
-        winDiv.innerText = 'You won!';
+        winDiv.innerHTML = "<img src=\"static/nice.png\">";
         let scoreDiv = document.getElementById('score');
-        scoreDiv.innerText = 'Your score is: ' + score;
+        scoreDiv.innerText = `${score}`;
         frog.style.top = '60px';
     }
 }

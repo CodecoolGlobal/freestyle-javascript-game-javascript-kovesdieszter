@@ -20,6 +20,10 @@ let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
 let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
 let carRight = document.getElementsByClassName("car-right")[INDEX]
 
+let liveOne = document.getElementById("lives1");
+let liveTwo = document.getElementById("lives2");
+let liveThree = document.getElementById("lives3");
+
 initGame();
 
 function carMovement() {
@@ -34,10 +38,20 @@ function carMovement() {
             let carLeftSide = elemStyle.getPropertyValue("left").replace('px', '')
             car.style.left = `${parseInt(carLeftSide, 10) + direction}px`
             crashed = crash(car)
+
             if (crashed) {
-            frog.style.left = 0;
-            frog.style.top = 0;
-        }
+                frog.style.left = 0;
+                frog.style.top = 0;
+                lives -= 1;
+                liveThree.style.visibility ="hidden";
+            }
+            // else if (crashed && lives === 2){
+            //     frog.style.left = 0;
+            //     frog.style.top = 0;
+            //     lives -= 1;
+            //     console.log("beleugrik");
+            //     liveTwo.style.visibility ="hidden";
+            // }
             await new Promise((r) => setTimeout(() => r(), 5));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
@@ -143,30 +157,37 @@ function crash(car) {
     let liveTwo = document.getElementById("lives2");
     let liveThree = document.getElementById("lives3");
 
-    if (carL < frogL + frogW &&
-        carL + carW > frogL &&
-        carT < frogT + frogH &&
-        carH + carT > frogT) {
-        liveThree.style.visibility ="hidden";
-        return true
-    }
-    if (lives === 2 &&
-        carL < frogL + frogW &&
-        carL + carW > frogL &&
-        carT < frogT + frogH &&
-        carH + carT > frogT) {
-        liveTwo.style.visibility ="hidden";
-        return true
-    }
 
     if (carL < frogL + frogW &&
         carL + carW > frogL &&
         carT < frogT + frogH &&
         carH + carT > frogT &&
         lives === 1) {
-        liveOne.style.visibility ="hidden";
+        liveOne.style.visibility = "hidden";
         return true
-    }else {
+    }
+
+    else if (lives === 2 &&
+        carL < frogL + frogW &&
+        carL + carW > frogL &&
+        carT < frogT + frogH &&
+        carH + carT > frogT) {
+        console.log("beleugrik");
+        liveTwo.style.visibility ="hidden";
+        return true
+    }
+
+    else if (carL < frogL + frogW &&
+        carL + carW > frogL &&
+        carT < frogT + frogH &&
+        carH + carT > frogT) {
+        liveThree.style.visibility ="hidden";
+        return true
+    }
+
+
+
+    else {
         return false
     }
 }

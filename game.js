@@ -48,7 +48,7 @@ function carMovement() {
                     gameOver()
                 }
             }
-            await new Promise((r) => setTimeout(() => r(), 5));
+            await new Promise((r) => setTimeout(() => r(), 20));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
                     car.style.left = "10px"

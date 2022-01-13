@@ -19,11 +19,8 @@ const field = document.getElementsByClassName('container')[INDEX]
 let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
 let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
 let carRight = document.getElementsByClassName("car-right")[INDEX]
-let livesDiv = document.getElementById('lives');
-
-let liveOne = document.getElementById("lives1");
-let liveTwo = document.getElementById("lives2");
-let liveThree = document.getElementById("lives3");
+let timeout = [15, 10, 5, 4, 3, 2, 1]
+let speed = 0
 
 initGame();
 
@@ -48,7 +45,7 @@ function carMovement() {
                     gameOver()
                 }
             }
-            await new Promise((r) => setTimeout(() => r(), 20));
+            await new Promise((r) => setTimeout(() => r(), timeout[speed]));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
                     car.style.left = "10px"
@@ -73,16 +70,12 @@ function initGame() {
     frog.style.left = 0;
     frog.style.top = 0;
     removeButton()
+    carMovement()
     // Your game can start here, but define separate functions, don't write everything in here :)
         });
 }
 
 
-// window.addEventListener('click', () => {
-//     frog.style.position = 'relative';
-//     frog.style.left = 0;
-//     frog.style.top = 0;
-// });
 
 
 window.addEventListener('keyup', (e) => {
@@ -121,7 +114,6 @@ window.addEventListener('keyup', (e) => {
 
 function checkIfWin() {
     if (frog.style.top === '-360px') {
-        alert('win');
         score += 1;
         let winDiv = document.getElementById('win');
         winDiv.style.display = "block";
@@ -131,6 +123,9 @@ function checkIfWin() {
             winDiv.style.display = "none"
         }, 1500)
         frog.style.top = '60px';
+        if (speed < 6) {
+            speed++
+        }
     }
 }
 
@@ -185,12 +180,19 @@ function crash(car) {
     }
 }
 
+let body = document.getElementsByTagName("body")[INDEX]
+let livesScript = document.getElementsByClassName("lives")[INDEX]
+let buttonsimg = document.getElementsByClassName("buttonsImage")[INDEX]
+let intro = document.getElementsByClassName("intro")[INDEX]
 
 function gameOver() {
-    let body = document.getElementsByTagName("body")[INDEX]
-    container.innerHTML = "<div><div><img src='static/logo.png' width='700px'></div></div><div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png' width='700px'></div></div> \
-    <div><button class=button onclick=\"carMovement();\" style=\"vertical-align:middle\"> <span> Restart </span></button>"
+    container.style.display = "none"
+    body.innerHTML = "<div class='gameover'><div><div><img src='static/logo.png' width='700px'></div></div><div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png' width='700px'></div></div> \
+    <div><button class=button onclick=restart(); style='vertical-align:middle'> <span> Restart </span></button></div>"
+    livesScript.style.display = "none"
+    buttonsimg.style.display = "none"
     body.style.backgroundColor = "white"
+    intro.style.display= "none"
 }
 
 function checkIfLost() {
@@ -207,3 +209,8 @@ function removeButton() {
     button.style.visibility = "hidden"
 }
 // branch try
+
+
+function restart() {
+    location.reload()
+}

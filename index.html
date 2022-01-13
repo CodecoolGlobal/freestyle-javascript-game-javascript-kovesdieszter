@@ -18,10 +18,13 @@
 
 <div class="container">
     <div><img src="static/logo.png"></div>
-    <div id="button"><button class="button" onclick="carMovement();" style="vertical-align:middle"> <span>Play </span></button>
+    <div id="button"><button class="button" onclick="initGame();" style="vertical-align:middle"> <span>Play </span></button>
 <!--        Controls <img  class="keys" width="100px" src="static/keyboard_key_up.png"><br>-->
 <!--    <img class ="keys" width="100px" src ="static/keyboard_key_left.png">></div>-->
-    </div>
+    </div> <!-- ez a záró div légyszi maradjon-->
+
+    <embed loop="true" src="static/frogmusic.mp3" hidden="true" type="video/quicktime"><embed>
+
     <div class="finish">
         <div></div>
     </div>
@@ -49,7 +52,6 @@
         <div class = "frog"><img class="frog-img" src="static/frog.png"></div>
     </div>
     <div id="score"></div>
-    <div id="win"><img src="static/nice.png"></div>
 
 </div>
     <div class ="lives">Lives:</div>
@@ -59,12 +61,12 @@
 
     <div class="intro">
         <h3>INTRO:</h3>
-        The objective of the game is to guide<br>
-        a frog the top of the field. <br>
+        The objective of the game is to guide a frog to the top of the field. <br>
         You have 3 lives.<br>
         <h3>CONTROLS:</h3>
     </div>
     <div class ="buttonsImage"><img src='static/Keys.png' width="150"></div>
+    <div id="win"><img src="static/nice.png"></div>
 
 
 

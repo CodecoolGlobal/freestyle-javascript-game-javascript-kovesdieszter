@@ -1,4 +1,3 @@
-
 let frog = document.querySelector('.frog');
 let move = 60;
 let container = document.querySelector('.container');
@@ -20,12 +19,8 @@ const field = document.getElementsByClassName('container')[INDEX]
 let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
 let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
 let carRight = document.getElementsByClassName("car-right")[INDEX]
-let livesDiv = document.getElementById('lives');
-
-let liveOne = document.getElementById("lives1");
-let liveTwo = document.getElementById("lives2");
-let liveThree = document.getElementById("lives3");
-let myMusic = document.createElement("audio");
+let timeout = [15, 10, 5, 4, 3, 2, 1]
+let speed = 0
 
 initGame();
 
@@ -50,7 +45,7 @@ function carMovement() {
                     gameOver()
                 }
             }
-            await new Promise((r) => setTimeout(() => r(), 20));
+            await new Promise((r) => setTimeout(() => r(), timeout[speed]));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
                     car.style.left = "10px"
@@ -74,16 +69,11 @@ function initGame() {
     frog.style.position = 'relative';
     frog.style.left = 0;
     frog.style.top = 0;
-    // Your game can start here, but define separate functions, don't write everything in here :)
+
         });
 }
 
 
-// window.addEventListener('click', () => {
-//     frog.style.position = 'relative';
-//     frog.style.left = 0;
-//     frog.style.top = 0;
-// });
 
 
 window.addEventListener('keyup', (e) => {
@@ -121,13 +111,19 @@ window.addEventListener('keyup', (e) => {
 });
 
 function checkIfWin() {
-    if (frog.style.top === '-300px') {
+    if (frog.style.top === '-360px') {
         score += 1;
         let winDiv = document.getElementById('win');
-        winDiv.innerHTML = "<img src=\"static/nice.png\">";
+        winDiv.style.display = "block";
         let scoreDiv = document.getElementById('score');
-        scoreDiv.innerText = `${score}`;
+        scoreDiv.innerText = `Score: ${score}`;
+        setTimeout(function(){
+            winDiv.style.display = "none"
+        }, 1500)
         frog.style.top = '60px';
+        if (speed < 6) {
+            speed++
+        }
     }
 }
 
@@ -197,5 +193,3 @@ function checkIfLost() {
         return false
     }
 }
-
-// branch try

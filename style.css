@@ -82,7 +82,7 @@ h1{
       border: none;
       color: black;
       text-align: center;
-      font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+      font-family: "Baby Cruffy";
       font-size: 28px;
       padding: 20px;
       width: 200px;
@@ -170,5 +170,12 @@ h1{
     position: absolute;
     top: 70%;
     margin-left: -250px;
+    /*margin-left: 40px;*/
+}
+
+.intro{
+    position: absolute;
+    top: 50%;
+    margin-left: -400px;
     /*margin-left: 40px;*/
 }

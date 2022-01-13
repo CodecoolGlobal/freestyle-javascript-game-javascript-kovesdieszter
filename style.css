@@ -1,11 +1,11 @@
-body {
+body{
     background-color: #757575;
     text-align: center;
     display: flex;
     justify-content: center;
 }
 
-h1 {
+h1{
     text-align: center;
     background-color: yellow;
 }
@@ -47,7 +47,7 @@ h1 {
     background-color: saddlebrown;
 }
 
-.finish {
+.finish{
     height: 60px;
     width: 900px;
     border: 1px solid;
@@ -74,19 +74,19 @@ h1 {
 
 
 .button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #00ff54;
-    border: none;
-    color: black;
-    text-align: center;
-    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #00ff54;
+      border: none;
+      color: black;
+      text-align: center;
+      font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+      font-size: 28px;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
 
     animation-name: flash;
     animation-duration: 1s;
@@ -184,7 +184,7 @@ h1 {
 .buttonsImage {
     position: absolute;
     top: 70%;
-    margin-left: -250px;
+    margin-left: -350px;
     /*margin-left: 40px;*/
 }
 
@@ -207,6 +207,18 @@ h1 {
     -1px  1px 0 #000,
      1px  1px 0 #000;
 }
+.intro{
+    background-color: #00ff54;
+    width: 250px;
+    position: absolute;
+    top: 40%;
+    margin-left: -400px;
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+    /*margin-left: 40px;*/
+}
+
+h3{
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
 
 
 #win{

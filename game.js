@@ -1,3 +1,4 @@
+
 let frog = document.querySelector('.frog');
 let move = 60;
 let container = document.querySelector('.container');
@@ -24,6 +25,7 @@ let livesDiv = document.getElementById('lives');
 let liveOne = document.getElementById("lives1");
 let liveTwo = document.getElementById("lives2");
 let liveThree = document.getElementById("lives3");
+let myMusic = document.createElement("audio");
 
 initGame();
 
@@ -72,7 +74,6 @@ function initGame() {
     frog.style.position = 'relative';
     frog.style.left = 0;
     frog.style.top = 0;
-
     // Your game can start here, but define separate functions, don't write everything in here :)
         });
 }
@@ -120,8 +121,7 @@ window.addEventListener('keyup', (e) => {
 });
 
 function checkIfWin() {
-    if (frog.style.top === '-360px') {
-        alert('win');
+    if (frog.style.top === '-300px') {
         score += 1;
         let winDiv = document.getElementById('win');
         winDiv.innerHTML = "<img src=\"static/nice.png\">";

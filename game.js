@@ -58,19 +58,26 @@ movingObj(carRight, -1);
 
 
 function initGame() {
+    window.addEventListener('click', () => {
+    frog.style.position = 'relative';
+    frog.style.left = 0;
+    frog.style.top = 0;
+
     let cars = document.getElementsByClassName('cars');
     let livesDiv = document.getElementById('lives');
     livesDiv.innerText = 'Your lives: ' + lives.toString();
     carMovement();
 
     // Your game can start here, but define separate functions, don't write everything in here :)
+        });
 }
 
-window.addEventListener('click', () => {
-    frog.style.position = 'relative';
-    frog.style.left = 0;
-    frog.style.top = 0;
-});
+
+// window.addEventListener('click', () => {
+//     frog.style.position = 'relative';
+//     frog.style.left = 0;
+//     frog.style.top = 0;
+// });
 
 
 window.addEventListener('keyup', (e) => {

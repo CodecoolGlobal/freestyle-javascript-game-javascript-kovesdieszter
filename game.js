@@ -1,5 +1,4 @@
 let frog = document.querySelector('.frog');
-let frogParams = frog.getBoundingClientRect()
 let move = 60;
 let container = document.querySelector('.container');
 let borders = container.getBoundingClientRect();
@@ -22,17 +21,23 @@ let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
 let carRight = document.getElementsByClassName("car-right")[INDEX]
 
 initGame();
+
 function carMovement() {
 
 
     async function movingObj(car, direction) {
         const fieldParams = field.getBoundingClientRect()
-        while (true) {
-            crash(firstCarLeft);
+        let crashed = false
+        while (lives > 0) {
             let carParams = car.getBoundingClientRect()
             let elemStyle = window.getComputedStyle(car)
             let carLeftSide = elemStyle.getPropertyValue("left").replace('px', '')
             car.style.left = `${parseInt(carLeftSide, 10) + direction}px`
+            crashed = crash(car)
+            if (crashed) {
+            frog.style.left = 0;
+            frog.style.top = 0;
+        }
             await new Promise((r) => setTimeout(() => r(), 5));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
@@ -45,17 +50,19 @@ function carMovement() {
             }
         }
     }
-
-    movingObj(firstCarLeft, 1);
-    movingObj(secondCarLeft, 1);
-    movingObj(carRight, -1);
+movingObj(firstCarLeft, 1);
+movingObj(secondCarLeft, 1);
+movingObj(carRight, -1);
 }
-carMovement();
+
+
 
 function initGame() {
     let cars = document.getElementsByClassName('cars');
     let livesDiv = document.getElementById('lives');
-    livesDiv.innerText = 'Your lives: '+lives.toString();
+    livesDiv.innerText = 'Your lives: ' + lives.toString();
+    carMovement();
+
     // Your game can start here, but define separate functions, don't write everything in here :)
 }
 
@@ -86,16 +93,16 @@ window.addEventListener('keyup', (e) => {
             frog.style.top = parseInt(frog.style.top) + move + 'px';
             console.log('Béka bottom:', parseInt(frog.style.top))
             break;
-}
+    }
 
     // limit frog's moves between board
     if (frog.style.left === gameBorderLeft) {
         frog.style.left = frogLimitLeft;
-    } else if (frog.style.left === gameBoardRight){
+    } else if (frog.style.left === gameBoardRight) {
         frog.style.left = frogLimitRight;
-    } else if (frog.style.top === gameBorderTop){
+    } else if (frog.style.top === gameBorderTop) {
         frog.style.top = frogLimitTop;
-    } else if (frog.style.top === gameBorderBottom){
+    } else if (frog.style.top === gameBorderBottom) {
         frog.style.top = frogLimitBottom;
     }
 });
@@ -113,16 +120,29 @@ function checkIfWin() {
 }
 
 function crash(car) {
-    if (car.style.left < frog.style.left + frog.style.width &&
-    car.style.left + car.style.width > frog.style.left &&
-    car.style.top < frog.style.top + frog.style.height &&
-    car.style.height + car.style.top > frog.style.top) {
+    let carParams = car.getBoundingClientRect()
+    let frogImg = document.getElementsByClassName("frog-img")[0]
+    let frogParams = frogImg.getBoundingClientRect()
+    let carL = Math.floor(carParams.left) //parseInt(car.style.left.replace('px', ''))
+    let carT = Math.floor(carParams.top) //parseInt(car.style.top.replace('px', ''))
+    let carH = Math.floor(carParams.height) //parseInt(car.style.height.replace('px', ''))
+    let carW = Math.floor(carParams.width) //parseInt(car.style.width.replace('px', ''))
+    let frogL = Math.floor(frogParams.left) //parseInt(frog.style.left.replace('px', ''))
+    let frogT = Math.floor(frogParams.top) //parseInt(frog.style.top.replace('px', ''))
+    let frogH = Math.floor(frogParams.height) //parseInt(frog.style.height.replace('px', ''))
+    let frogW = Math.floor(frogParams.width) //parseInt(frog.style.width.replace('px', ''))
+
+    if (carL < frogL + frogW &&
+        carL + carW > frogL &&
+        carT < frogT + frogH &&
+        carH + carT > frogT) {
         alert("hahó")
+        return true
+    }else {
+        return false
     }
 
 }
-
-
 
 
 // branch try

@@ -21,6 +21,7 @@ let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
 let carRight = document.getElementsByClassName("car-right")[INDEX]
 let timeout = [15, 10, 5, 4, 3, 2, 1]
 let speed = 0
+let music = new Audio("static/Crash.wav")
 
 initGame();
 
@@ -38,6 +39,7 @@ function carMovement() {
             crashed = crash(car)
 
             if (crashed) {
+                music.play();
                 frog.style.left = 0;
                 frog.style.top = 0;
                 lives -= 1

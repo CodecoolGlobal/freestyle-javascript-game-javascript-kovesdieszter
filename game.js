@@ -69,7 +69,9 @@ function initGame() {
     frog.style.position = 'relative';
     frog.style.left = 0;
     frog.style.top = 0;
-
+    removeButton()
+    carMovement()
+    // Your game can start here, but define separate functions, don't write everything in here :)
         });
 }
 
@@ -178,11 +180,19 @@ function crash(car) {
     }
 }
 
+let body = document.getElementsByTagName("body")[INDEX]
+let livesScript = document.getElementsByClassName("lives")[INDEX]
+let buttonsimg = document.getElementsByClassName("buttonsImage")[INDEX]
+let intro = document.getElementsByClassName("intro")[INDEX]
 
 function gameOver() {
-    let body = document.getElementsByTagName("body")[INDEX]
-    container.innerHTML = "<div><div><img src='static/logo.png'></div></div><div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png'></div></div>"
+    container.style.display = "none"
+    body.innerHTML = "<div class='gameover'><div><div><img src='static/logo.png' width='700px'></div></div><div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png' width='700px'></div></div> \
+    <div><button class=button onclick=restart(); style='vertical-align:middle'> <span> Restart </span></button></div>"
+    livesScript.style.display = "none"
+    buttonsimg.style.display = "none"
     body.style.backgroundColor = "white"
+    intro.style.display= "none"
 }
 
 function checkIfLost() {
@@ -192,4 +202,15 @@ function checkIfLost() {
     else {
         return false
     }
+}
+
+function removeButton() {
+    const button = document.getElementById("button")
+    button.style.visibility = "hidden"
+}
+// branch try
+
+
+function restart() {
+    location.reload()
 }

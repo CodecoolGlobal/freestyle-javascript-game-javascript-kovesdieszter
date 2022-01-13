@@ -82,6 +82,7 @@ h1{
       border: none;
       color: black;
       text-align: center;
+      font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
       font-size: 28px;
       padding: 20px;
       width: 200px;
@@ -140,8 +141,11 @@ h1{
 
 .lives{
     position: absolute;
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+    font-size: 40px;
+    background-color: #00ff54;
     top: 20%;
-    margin-left: 1070px;
+    margin-left: 1045px;
 }
 
 #lives1{

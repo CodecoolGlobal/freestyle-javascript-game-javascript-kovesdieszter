@@ -72,9 +72,10 @@ function initGame() {
     frog.style.position = 'relative';
     frog.style.left = 0;
     frog.style.top = 0;
-
+    removeButton()
     // Your game can start here, but define separate functions, don't write everything in here :)
         });
+
 }
 
 
@@ -185,7 +186,8 @@ function crash(car) {
 
 function gameOver() {
     let body = document.getElementsByTagName("body")[INDEX]
-    container.innerHTML = "<div><div><img src='static/logo.png'></div></div><div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png'></div></div>"
+    container.innerHTML = "<div><div><img src='static/logo.png' width='700px'></div></div><div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png' width='700px'></div></div> \
+    <div><button class=button onclick=\"carMovement();\" style=\"vertical-align:middle\"> <span> Restart </span></button>"
     body.style.backgroundColor = "white"
 }
 
@@ -198,4 +200,8 @@ function checkIfLost() {
     }
 }
 
+function removeButton() {
+    const button = document.getElementById("button")
+    button.style.visibility = "hidden"
+}
 // branch try

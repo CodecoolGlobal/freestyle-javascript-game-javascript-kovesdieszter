@@ -19,6 +19,11 @@ const field = document.getElementsByClassName('container')[INDEX]
 let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
 let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
 let carRight = document.getElementsByClassName("car-right")[INDEX]
+let livesDiv = document.getElementById('lives');
+
+let liveOne = document.getElementById("lives1");
+let liveTwo = document.getElementById("lives2");
+let liveThree = document.getElementById("lives3");
 
 initGame();
 
@@ -34,10 +39,15 @@ function carMovement() {
             let carLeftSide = elemStyle.getPropertyValue("left").replace('px', '')
             car.style.left = `${parseInt(carLeftSide, 10) + direction}px`
             crashed = crash(car)
+
             if (crashed) {
-            frog.style.left = 0;
-            frog.style.top = 0;
-        }
+                frog.style.left = 0;
+                frog.style.top = 0;
+                lives -= 1
+                if (checkIfLost()){
+                    gameOver()
+                }
+            }
             await new Promise((r) => setTimeout(() => r(), 5));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
@@ -50,9 +60,9 @@ function carMovement() {
             }
         }
     }
-movingObj(firstCarLeft, 1);
-movingObj(secondCarLeft, 1);
-movingObj(carRight, -1);
+    movingObj(firstCarLeft, 1);
+    movingObj(secondCarLeft, 1);
+    movingObj(carRight, -1);
 }
 
 
@@ -62,11 +72,6 @@ function initGame() {
     frog.style.position = 'relative';
     frog.style.left = 0;
     frog.style.top = 0;
-
-    let cars = document.getElementsByClassName('cars');
-    let livesDiv = document.getElementById('lives');
-    livesDiv.innerText = 'Your lives: ' + lives.toString();
-    // carMovement();
 
     // Your game can start here, but define separate functions, don't write everything in here :)
         });
@@ -143,14 +148,17 @@ function crash(car) {
     let liveTwo = document.getElementById("lives2");
     let liveThree = document.getElementById("lives3");
 
+
     if (carL < frogL + frogW &&
         carL + carW > frogL &&
         carT < frogT + frogH &&
-        carH + carT > frogT) {
-        liveThree.style.visibility ="hidden";
+        carH + carT > frogT &&
+        lives === 1) {
+        liveOne.style.visibility = "hidden";
         return true
     }
-    if (lives === 2 &&
+
+    else if (lives === 2 &&
         carL < frogL + frogW &&
         carL + carW > frogL &&
         carT < frogT + frogH &&
@@ -159,19 +167,35 @@ function crash(car) {
         return true
     }
 
-    if (carL < frogL + frogW &&
+    else if (carL < frogL + frogW &&
         carL + carW > frogL &&
         carT < frogT + frogH &&
-        carH + carT > frogT &&
-        lives === 1) {
-        liveOne.style.visibility ="hidden";
+        carH + carT > frogT) {
+        liveThree.style.visibility ="hidden";
         return true
-    }else {
+    }
+
+
+
+    else {
         return false
     }
 }
 
 
+function gameOver() {
+    let body = document.getElementsByTagName("body")[INDEX]
+    container.innerHTML = "<div><div><img src='static/logo.png'></div></div><div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png'></div></div>"
+    body.style.backgroundColor = "white"
+}
 
+function checkIfLost() {
+    if (lives === 0) {
+        return true
+    }
+    else {
+        return false
+    }
+}
 
 // branch try

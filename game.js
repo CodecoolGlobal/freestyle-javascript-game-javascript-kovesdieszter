@@ -37,7 +37,6 @@ function carMovement() {
                 frog.style.left = 0;
                 frog.style.top = 0;
                 lives -= 1
-                gameOver();
             }
             await new Promise((r) => setTimeout(() => r(), 5));
             if (direction === 1) {

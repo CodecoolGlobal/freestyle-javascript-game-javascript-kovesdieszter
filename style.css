@@ -134,7 +134,7 @@ h1{
 
 .try{
     position: absolute;
-    top: 30%;
+    top: 40%;
     margin-left: -250px;
 }
 
@@ -147,14 +147,14 @@ h1{
 
 #lives2{
     position: absolute;
-    top: 70%;
+    top: 50%;
     margin-LEFT: 1050px;
     background-color: #757575;
 }
 
 #lives3{
     position: absolute;
-    top: 30%;
+    top: 70%;
     margin-LEFT: 1050px;
     background-color: #757575;
 }

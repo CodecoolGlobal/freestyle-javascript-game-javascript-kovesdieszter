@@ -37,6 +37,9 @@ function carMovement() {
                 frog.style.left = 0;
                 frog.style.top = 0;
                 lives -= 1
+                if (checkIfLost()){
+                    gameOver()
+                }
             }
             await new Promise((r) => setTimeout(() => r(), 5));
             if (direction === 1) {
@@ -168,9 +171,18 @@ function crash(car) {
 
 
 function gameOver() {
-    container.innerHTML = "<div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png'></div></div>"
+    let body = document.getElementsByTagName("body")[INDEX]
+    container.innerHTML = "<div><div><img src='static/logo.png'></div></div><div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png'></div></div>"
+    body.style.backgroundColor = "white"
 }
 
-
+function checkIfLost() {
+    if (lives === 0) {
+        return true
+    }
+    else {
+        return false
+    }
+}
 
 // branch try

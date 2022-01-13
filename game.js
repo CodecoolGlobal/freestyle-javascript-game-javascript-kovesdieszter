@@ -19,6 +19,7 @@ const field = document.getElementsByClassName('container')[INDEX]
 let firstCarLeft = document.getElementsByClassName("car-left1")[INDEX]
 let secondCarLeft = document.getElementsByClassName("car-left2")[INDEX]
 let carRight = document.getElementsByClassName("car-right")[INDEX]
+let livesDiv = document.getElementById('lives');
 
 let liveOne = document.getElementById("lives1");
 let liveTwo = document.getElementById("lives2");
@@ -43,15 +44,7 @@ function carMovement() {
                 frog.style.left = 0;
                 frog.style.top = 0;
                 lives -= 1;
-                liveThree.style.visibility ="hidden";
             }
-            // else if (crashed && lives === 2){
-            //     frog.style.left = 0;
-            //     frog.style.top = 0;
-            //     lives -= 1;
-            //     console.log("beleugrik");
-            //     liveTwo.style.visibility ="hidden";
-            // }
             await new Promise((r) => setTimeout(() => r(), 5));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
@@ -64,9 +57,9 @@ function carMovement() {
             }
         }
     }
-movingObj(firstCarLeft, 1);
-movingObj(secondCarLeft, 1);
-movingObj(carRight, -1);
+    movingObj(firstCarLeft, 1);
+    movingObj(secondCarLeft, 1);
+    movingObj(carRight, -1);
 }
 
 
@@ -192,6 +185,10 @@ function crash(car) {
     }
 }
 
+
+function gameOver() {
+    container.innerHTML = "<div><div><img src='static/cryingfrog.gif'></div></div><div><div><img src='static/gameover.png'></div></div>"
+}
 
 
 

@@ -73,8 +73,6 @@ h1{
 }
 
 
-
-
 .button {
       display: inline-block;
       border-radius: 4px;
@@ -146,9 +144,20 @@ h1{
 }
 
 .lives {
+    font-family: myFirstFont;
+    font-size: 30px;
     position: absolute;
     top: 12%;
     margin-left: 1045px;
+    color: #00ff54;
+    font-size: 73px;
+    /*and give the outline for it with shadows*/
+      text-shadow:
+     3px  3px 0 #000,
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
 }
 
 #lives1 {
@@ -210,4 +219,23 @@ h1{
 
 h3{
     font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+
+
+#win{
+    display: none;
+}
+
+#score{
+    font-family: myFirstFont;
+    font-size: 30px;
+    position: inherit;
+    color: #00ff54;
+    font-size: 73px;
+    /*and give the outline for it with shadows*/
+      text-shadow:
+     3px  3px 0 #000,
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
 }

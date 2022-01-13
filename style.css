@@ -172,3 +172,7 @@ h1{
     margin-left: -250px;
     /*margin-left: 40px;*/
 }
+
+#win{
+    display: none;
+}

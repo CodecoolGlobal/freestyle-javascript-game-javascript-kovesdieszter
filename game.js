@@ -124,9 +124,12 @@ function checkIfWin() {
         alert('win');
         score += 1;
         let winDiv = document.getElementById('win');
-        winDiv.innerHTML = "<img src=\"static/nice.png\">";
+        winDiv.style.display = "block";
         let scoreDiv = document.getElementById('score');
         scoreDiv.innerText = `${score}`;
+        setTimeout(function(){
+            winDiv.style.display = "none"
+        }, 2000)
         frog.style.top = '60px';
     }
 }
@@ -197,5 +200,4 @@ function checkIfLost() {
         return false
     }
 }
-
 // branch try

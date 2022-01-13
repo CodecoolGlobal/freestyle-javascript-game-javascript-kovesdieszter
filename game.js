@@ -24,6 +24,8 @@ let livesDiv = document.getElementById('lives');
 let liveOne = document.getElementById("lives1");
 let liveTwo = document.getElementById("lives2");
 let liveThree = document.getElementById("lives3");
+let timeout = [15, 10, 5, 4, 3, 2, 1]
+let speed = 0
 
 initGame();
 
@@ -48,7 +50,7 @@ function carMovement() {
                     gameOver()
                 }
             }
-            await new Promise((r) => setTimeout(() => r(), 20));
+            await new Promise((r) => setTimeout(() => r(), timeout[speed]));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
                     car.style.left = "10px"
@@ -121,7 +123,6 @@ window.addEventListener('keyup', (e) => {
 
 function checkIfWin() {
     if (frog.style.top === '-360px') {
-        alert('win');
         score += 1;
         let winDiv = document.getElementById('win');
         winDiv.style.display = "block";
@@ -131,6 +132,9 @@ function checkIfWin() {
             winDiv.style.display = "none"
         }, 1500)
         frog.style.top = '60px';
+        if (speed < 6) {
+            speed++
+        }
     }
 }
 

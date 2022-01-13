@@ -217,9 +217,9 @@ h1{
     /*margin-left: 40px;*/
 }
 
-h3{
+h3 {
     font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
-
+}
 
 #win{
     display: none;

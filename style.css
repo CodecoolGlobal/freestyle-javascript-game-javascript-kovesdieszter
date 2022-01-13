@@ -141,10 +141,7 @@ h1{
 
 .lives{
     position: absolute;
-    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
-    font-size: 40px;
-    background-color: #00ff54;
-    top: 20%;
+    top: 12%;
     margin-left: 1045px;
 }
 
@@ -172,6 +169,6 @@ h1{
 .buttonsImage{
     position: absolute;
     top: 70%;
-    margin-left: -120px;
+    margin-left: -250px;
     /*margin-left: 40px;*/
 }

@@ -48,7 +48,7 @@ function carMovement() {
                     gameOver()
                 }
             }
-            await new Promise((r) => setTimeout(() => r(), 5));
+            await new Promise((r) => setTimeout(() => r(), 20));
             if (direction === 1) {
                 if (Math.floor(carParams.right) === Math.floor(fieldParams.right)) {
                     car.style.left = "10px"
@@ -125,9 +125,9 @@ function checkIfWin() {
         alert('win');
         score += 1;
         let winDiv = document.getElementById('win');
-        winDiv.innerText = 'You won!';
+        winDiv.innerHTML = "<img src=\"static/nice.png\">";
         let scoreDiv = document.getElementById('score');
-        scoreDiv.innerText = 'Your score is: ' + score;
+        scoreDiv.innerText = `${score}`;
         frog.style.top = '60px';
     }
 }

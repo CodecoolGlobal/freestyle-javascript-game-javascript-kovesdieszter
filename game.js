@@ -205,7 +205,7 @@ function checkIfLost() {
 }
 
 function removeButton() {
-    const button = document.getElementById("button")
+    const button = document.getElementsByTagName("button")[INDEX]
     button.style.visibility = "hidden"
 }
 // branch try

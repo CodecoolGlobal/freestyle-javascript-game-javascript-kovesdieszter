@@ -168,3 +168,10 @@ h1{
     margin-LEFT: 1050px;
     background-color: #757575;
 }
+
+.buttonsImage{
+    position: absolute;
+    top: 70%;
+    margin-left: -120px;
+    /*margin-left: 40px;*/
+}

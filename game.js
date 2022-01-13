@@ -169,7 +169,6 @@ function crash(car) {
     }else {
         return false
     }
-
 }
 
 

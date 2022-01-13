@@ -66,7 +66,7 @@ function initGame() {
     let cars = document.getElementsByClassName('cars');
     let livesDiv = document.getElementById('lives');
     livesDiv.innerText = 'Your lives: ' + lives.toString();
-    carMovement();
+    // carMovement();
 
     // Your game can start here, but define separate functions, don't write everything in here :)
         });
@@ -127,6 +127,7 @@ function checkIfWin() {
 }
 
 function crash(car) {
+    console.log(lives)
     let carParams = car.getBoundingClientRect()
     let frogImg = document.getElementsByClassName("frog-img")[0]
     let frogParams = frogImg.getBoundingClientRect()
@@ -138,12 +139,32 @@ function crash(car) {
     let frogT = Math.floor(frogParams.top) //parseInt(frog.style.top.replace('px', ''))
     let frogH = Math.floor(frogParams.height) //parseInt(frog.style.height.replace('px', ''))
     let frogW = Math.floor(frogParams.width) //parseInt(frog.style.width.replace('px', ''))
+    let liveOne = document.getElementById("lives1");
+    let liveTwo = document.getElementById("lives2");
+    let liveThree = document.getElementById("lives3");
 
     if (carL < frogL + frogW &&
         carL + carW > frogL &&
         carT < frogT + frogH &&
         carH + carT > frogT) {
-        alert("hahó")
+        liveThree.style.visibility ="hidden";
+        return true
+    }
+    if (lives === 2 &&
+        carL < frogL + frogW &&
+        carL + carW > frogL &&
+        carT < frogT + frogH &&
+        carH + carT > frogT) {
+        liveTwo.style.visibility ="hidden";
+        return true
+    }
+
+    if (carL < frogL + frogW &&
+        carL + carW > frogL &&
+        carT < frogT + frogH &&
+        carH + carT > frogT &&
+        lives === 1) {
+        liveOne.style.visibility ="hidden";
         return true
     }else {
         return false

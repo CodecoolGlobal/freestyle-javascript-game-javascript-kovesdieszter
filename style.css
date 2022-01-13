@@ -138,6 +138,12 @@ h1{
     margin-left: -250px;
 }
 
+.lives{
+    position: absolute;
+    top: 20%;
+    margin-left: 1070px;
+}
+
 #lives1{
     position: absolute;
     top: 30%;

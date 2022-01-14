@@ -69,6 +69,7 @@ function carMovement() {
 
 function initGame() {
     window.addEventListener('click', () => {
+    bcMusic.loop = true;
     bcMusic.play();
     frog.style.position = 'relative';
     frog.style.left = 0;

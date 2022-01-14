@@ -3,6 +3,11 @@ body{
     text-align: center;
     display: flex;
     justify-content: center;
+    background-image: url("https://i.ytimg.com/vi/Sv8HPkt-RaY/maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
 }
 
 h1{
@@ -164,21 +169,18 @@ h1{
     position: absolute;
     top: 30%;
     margin-LEFT: 1050px;
-    background-color: #757575;
 }
 
 #lives2 {
     position: absolute;
     top: 50%;
     margin-LEFT: 1050px;
-    background-color: #757575;
 }
 
 #lives3 {
     position: absolute;
     top: 70%;
     margin-LEFT: 1050px;
-    background-color: #757575;
 }
 
 .buttonsImage {
